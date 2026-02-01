@@ -1,11 +1,8 @@
-import Todo from "./component/Todo";
-// import Category from "./component/Category";
-
+import Todo from "./component/Todo"
 const App = () => {
   return (
     <>
       <Todo />
-      {/* <Category data="Mobile" /> */}
     </>
   );
 };
