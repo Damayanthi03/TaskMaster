@@ -1,0 +1,166 @@
+/* Global background - dark gradient */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #1f1c2c 0%, #928dab 100%); /* deep purple to gray gradient */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: Arial, sans-serif;
+  color: #e0e0e0; /* light text for contrast */
+}
+
+/* Todo container - dark with neon glow */
+.todo {
+  max-width: 500px;
+  width: 100%;
+  margin: 40px auto;
+  padding: 20px;
+  background: #2c2c34; /* dark slate */
+  border-radius: 12px;
+  box-shadow: 
+    0 0 12px rgba(128, 222, 234, 0.4),   /* cyan glow */
+    0 0 24px rgba(156, 39, 176, 0.3),    /* purple glow */
+    0 4px 16px rgba(0,0,0,0.6);          /* subtle depth shadow */
+}
+
+/* Heading */
+.todo h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #f5f5f5; /* bright heading */
+}
+
+/* Inputs */
+.todo input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #555;
+  border-radius: 6px;
+  font-size: 14px;
+  background: #3a3a44;
+  color: #f0f0f0;
+}
+
+/* General button style with gradient combo */
+.todo button {
+  margin: 6px 4px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #4caf50, #81c784); /* green combo */
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.todo button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(129, 199, 132, 0.7);
+}
+
+/* Clear Completed button - red combo */
+.todo button:nth-of-type(2) {
+  background: linear-gradient(135deg, #e53935, #ef5350);
+}
+
+.todo button:nth-of-type(2):hover {
+  box-shadow: 0 0 10px rgba(239,83,80,0.7);
+}
+
+/* Task counter */
+.todo p {
+  margin: 10px 0;
+  font-weight: bold;
+  color: #bbb;
+}
+
+/* Task list */
+.todo ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.todo li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #3a3a44; /* dark task background */
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #555;
+  transition: transform 0.2s ease;
+}
+
+.todo li:hover {
+  transform: scale(1.02);
+}
+
+/* Completed tasks */
+.todo li.completed strong {
+  text-decoration: line-through;
+  color: #888;
+}
+
+/* Tag styling */
+.todo .tag {
+  margin-left: 10px;
+  font-size: 12px;
+  background: #37474f; /* dark teal-gray */
+  color: #80deea; /* cyan accent */
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+/* Action buttons inside tasks */
+.actions button {
+  margin-left: 6px;
+  background: linear-gradient(135deg, #2196f3, #64b5f6); /* blue combo */
+}
+
+.actions button:hover {
+  box-shadow: 0 0 10px rgba(100,181,246,0.7);
+}
+
+.actions button:nth-of-type(2) {
+  background: linear-gradient(135deg, #ff9800, #ffb74d); /* orange combo */
+}
+
+.actions button:nth-of-type(2):hover {
+  box-shadow: 0 0 10px rgba(255,183,77,0.7);
+}
+
+.actions button:nth-of-type(3) {
+  background: linear-gradient(135deg, #f44336, #ef5350); /* red combo */
+}
+
+.actions button:nth-of-type(3):hover {
+  box-shadow: 0 0 10px rgba(244,67,54,0.7);
+}
+
+/* No task message */
+.no-task {
+  text-align: center;
+  color: #aaa;
+  font-style: italic;
+  margin-top: 15px;
+}
+
+/* Search notification */
+.search-msg {
+  margin-top: 8px;
+  font-weight: bold;
+  text-align: center;
+  color: #f5f5f5;
+}
+.search-msg:contains("✅") {
+  color: #4caf50;
+}
+.search-msg:contains("❌") {
+  color: #f44336;
+}
