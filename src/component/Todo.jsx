@@ -1,22 +1,19 @@
-<<<<<<< HEAD
 import { useState, useEffect } from "react";
 import "./Todo.css";
 
 export default function Todo() {
   const [task, setTask] = useState("");
-  const [date, setDate] = useState("");   // NEW state for date
+  const [date, setDate] = useState("");   
   const [list, setList] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
   const [search, setSearch] = useState("");
-  const [searchMessage, setSearchMessage] = useState(""); // notification
+  const [searchMessage, setSearchMessage] = useState("");
 
-  // Load tasks from localStorage
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("todoList")) || [];
     setList(saved);
   }, []);
 
-  // Save tasks to localStorage
   useEffect(() => {
     localStorage.setItem("todoList", JSON.stringify(list));
   }, [list]);
@@ -59,12 +56,9 @@ export default function Todo() {
 
   const remainingTasks = list.filter((item) => !item.completed).length;
 
-  // Search logic
   const filteredList = list.filter((item) =>
     item.text.toLowerCase().includes(search.toLowerCase())
   );
-
-  // Handle Enter key in search
   const handleSearchKey = (e) => {
     if (e.key === "Enter") {
       if (filteredList.length > 0) {
@@ -85,12 +79,12 @@ export default function Todo() {
         placeholder="Enter your task"
       />
       <input
-        type="date"   // NEW date input
+        type="date"
         value={date}
         onChange={(e) => setDate(e.target.value)}
         placeholder="Set targetdate"
       />
-      {/* Helper info text */}
+  
       <small className="date-info">
         📅 Set your targetdate — helps you remember when you want to complete this task.
       </small>
@@ -102,7 +96,6 @@ export default function Todo() {
 
       <p>{remainingTasks} task{remainingTasks !== 1 ? "s" : ""} left</p>
 
-      {/* Search bar */}
       <input
         value={search}
         onChange={(e) => setSearch(e.target.value)}
@@ -110,7 +103,7 @@ export default function Todo() {
         placeholder="Search task..."
       />
 
-      {/* Notification */}
+  
       {searchMessage && <p className="search-msg">{searchMessage}</p>}
 
       <ul>
@@ -136,25 +129,21 @@ export default function Todo() {
       </ul>
     </div>
   );
-=======
 import { useState, useEffect } from "react";
 import "./Todo.css";
 
 export default function Todo() {
   const [task, setTask] = useState("");
-  const [date, setDate] = useState("");   // NEW state for date
+  const [date, setDate] = useState("");   
   const [list, setList] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
   const [search, setSearch] = useState("");
-  const [searchMessage, setSearchMessage] = useState(""); // notification
-
-  // Load tasks from localStorage
+  const [searchMessage, setSearchMessage] = useState(""); 
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("todoList")) || [];
     setList(saved);
   }, []);
 
-  // Save tasks to localStorage
   useEffect(() => {
     localStorage.setItem("todoList", JSON.stringify(list));
   }, [list]);
@@ -196,13 +185,11 @@ export default function Todo() {
   };
 
   const remainingTasks = list.filter((item) => !item.completed).length;
-
-  // Search logic
+  
   const filteredList = list.filter((item) =>
     item.text.toLowerCase().includes(search.toLowerCase())
   );
 
-  // Handle Enter key in search
   const handleSearchKey = (e) => {
     if (e.key === "Enter") {
       if (filteredList.length > 0) {
@@ -223,12 +210,12 @@ export default function Todo() {
         placeholder="Enter your task"
       />
       <input
-        type="date"   // NEW date input
+        type="date"  
         value={date}
         onChange={(e) => setDate(e.target.value)}
         placeholder="Set targetdate"
       />
-      {/* Helper info text */}
+  
       <small className="date-info">
         📅 Set your targetdate — helps you remember when you want to complete this task.
       </small>
@@ -239,8 +226,6 @@ export default function Todo() {
       <button onClick={clearCompleted}>Clear Completed</button>
 
       <p>{remainingTasks} task{remainingTasks !== 1 ? "s" : ""} left</p>
-
-      {/* Search bar */}
       <input
         value={search}
         onChange={(e) => setSearch(e.target.value)}
@@ -248,7 +233,6 @@ export default function Todo() {
         placeholder="Search task..."
       />
 
-      {/* Notification */}
       {searchMessage && <p className="search-msg">{searchMessage}</p>}
 
       <ul>
@@ -274,5 +258,4 @@ export default function Todo() {
       </ul>
     </div>
   );
->>>>>>> df853f8d7a017968fe9fba7f70f0a260090de499
 }
